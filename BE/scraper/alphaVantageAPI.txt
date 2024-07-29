@@ -1,0 +1,42 @@
+Global Market Open & Close Status Utility
+
+This endpoint returns the current market status (open vs. closed) of major trading venues for equities, forex, and cryptocurrencies around the world.
+
+
+API Parameters
+❚ Required: function
+
+The API function of your choice. In this case, function=MARKET_STATUS
+
+❚ Required: apikey
+
+Your API key. Claim your free API key here.
+
+
+Examples (click for JSON output)
+https://www.alphavantage.co/query?function=MARKET_STATUS&apikey=demo
+
+
+Language-specific guides
+Python NodeJS PHP C#/.NET Other
+
+'use strict';
+var request = require('request');
+
+// replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
+var url = 'https://www.alphavantage.co/query?function=MARKET_STATUS&apikey=demo';
+
+request.get({
+    url: url,
+    json: true,
+    headers: {'User-Agent': 'request'}
+  }, (err, res, data) => {
+    if (err) {
+      console.log('Error:', err);
+    } else if (res.statusCode !== 200) {
+      console.log('Status:', res.statusCode);
+    } else {
+      // data is successfully parsed as a JSON object:
+      console.log(data);
+    }
+});
